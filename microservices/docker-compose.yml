@@ -19,9 +19,10 @@ services:
       POSTGRES_PASSWORD: 12345
       POSTGRES_DB: userdb
     ports:
-      - "5434:5434"
+      - "5432:5432"
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql.conf
+      - ./pg-data:/var/lib/postgresql/data
 
   mongodb:
     container_name: logdb

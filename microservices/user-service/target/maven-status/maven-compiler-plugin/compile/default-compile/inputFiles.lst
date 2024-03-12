@@ -1,0 +1,13 @@
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\dto\responses\GetUserResponse.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\entities\User.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\UserServiceApplication.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\dto\responses\GetAllUsersResponse.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\api\controllers\UsersController.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\dto\requests\UpdateUserRequest.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\dto\responses\UpdateUserResponse.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\abstracts\UserService.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\configuration\ModelMapperConfig.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\repository\UserRepository.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\dto\requests\CreateUserRequest.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\concretes\UserManager.java
+C:\Users\ebkay\OneDrive\Belgeler\GitHub\N11-Backend-Bootcamp-Final-Case\microservices\user-service\src\main\java\com\burakkaya\userservice\business\dto\responses\CreateUserResponse.java

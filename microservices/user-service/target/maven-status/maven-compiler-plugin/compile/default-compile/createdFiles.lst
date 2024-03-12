@@ -1,0 +1,13 @@
+com\burakkaya\userservice\business\concretes\UserManager.class
+com\burakkaya\userservice\business\dto\requests\CreateUserRequest.class
+com\burakkaya\userservice\business\abstracts\UserService.class
+com\burakkaya\userservice\api\controllers\UsersController.class
+com\burakkaya\userservice\UserServiceApplication.class
+com\burakkaya\userservice\business\dto\requests\UpdateUserRequest.class
+com\burakkaya\userservice\repository\UserRepository.class
+com\burakkaya\userservice\entities\User.class
+com\burakkaya\userservice\business\dto\responses\GetAllUsersResponse.class
+com\burakkaya\userservice\business\dto\responses\GetUserResponse.class
+com\burakkaya\userservice\configuration\ModelMapperConfig.class
+com\burakkaya\userservice\business\dto\responses\CreateUserResponse.class
+com\burakkaya\userservice\business\dto\responses\UpdateUserResponse.class
