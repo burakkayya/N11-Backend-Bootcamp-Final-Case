@@ -1,6 +1,7 @@
 package com.burakkaya.userservice.business.dto.requests;
 
 import com.burakkaya.commonpackage.constants.Regex;
+import com.burakkaya.commonpackage.utils.enums.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -34,6 +35,8 @@ public class UpdateUserRequest {
     @NotBlank
     @Length(min = 10, max = 200)
     private String address;
+    @NotNull
+    private Status status;
     @NotNull
     private Double latitude;
     @NotNull

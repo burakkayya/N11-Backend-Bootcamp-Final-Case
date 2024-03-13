@@ -1,7 +1,9 @@
 package com.burakkaya.userservice.business.dto.requests;
 
 import com.burakkaya.commonpackage.constants.Regex;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,8 +37,8 @@ public class CreateUserRequest {
     @NotBlank
     @Length(min = 10, max = 200)
     private String address;
-    @NotBlank
+    @NotNull
     private Double latitude;
-    @NotBlank
+    @NotNull
     private Double longitude;
 }

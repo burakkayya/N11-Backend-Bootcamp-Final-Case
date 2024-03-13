@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   kafka:
@@ -23,6 +23,17 @@ services:
     volumes:
       - ./postgresql.conf:/etc/postgresql.conf
       - ./pg-data:/var/lib/postgresql/data
+
+  solr:
+    image: solr
+    container_name: solr
+    ports:
+      - "8983:8983"
+    volumes:
+      - data:/var/solr
+    command:
+      - solr-precreate
+      - restaurants
 
   mongodb:
     container_name: logdb
@@ -81,9 +92,10 @@ services:
       - "9411:9411"
 
 volumes:
+  data:
   kafka_data:
   mongodb_data:
-  esdata1:
+#  esdata1:
   grafana-data:
   grafana-config:
 networks:

@@ -8,6 +8,5 @@ com\burakkaya\userservice\repository\UserRepository.class
 com\burakkaya\userservice\entities\User.class
 com\burakkaya\userservice\business\dto\responses\GetAllUsersResponse.class
 com\burakkaya\userservice\business\dto\responses\GetUserResponse.class
-com\burakkaya\userservice\configuration\ModelMapperConfig.class
 com\burakkaya\userservice\business\dto\responses\CreateUserResponse.class
 com\burakkaya\userservice\business\dto\responses\UpdateUserResponse.class

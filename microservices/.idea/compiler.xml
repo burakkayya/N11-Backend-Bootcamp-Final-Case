@@ -10,6 +10,7 @@
         <module name="api-gateway" />
         <module name="discovery-server" />
         <module name="user-service" />
+        <module name="restaurant-service" />
         <module name="common-package" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
       <module name="api-gateway" options="-parameters" />
       <module name="common-package" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
+      <module name="restaurant-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
   </component>

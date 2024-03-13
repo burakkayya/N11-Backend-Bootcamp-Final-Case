@@ -1,0 +1,2 @@
+Restaurant:
+  findByIdOrNameContains: "id:*?0* OR name:*?0*"

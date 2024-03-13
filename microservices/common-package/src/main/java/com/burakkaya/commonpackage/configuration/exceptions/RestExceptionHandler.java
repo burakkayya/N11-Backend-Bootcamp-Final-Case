@@ -4,7 +4,7 @@ package com.burakkaya.commonpackage.configuration.exceptions;
 import com.burakkaya.commonpackage.constants.ExceptionTypes;
 import com.burakkaya.commonpackage.utils.exceptions.BusinessException;
 import com.burakkaya.commonpackage.utils.results.ExceptionResult;
-import jakarta.validation.ValidationException;
+import javax.validation.ValidationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
