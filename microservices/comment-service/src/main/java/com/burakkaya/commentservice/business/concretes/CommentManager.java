@@ -10,12 +10,17 @@ import com.burakkaya.commentservice.business.dto.responses.UpdateCommentResponse
 import com.burakkaya.commentservice.business.rules.CommentBusinessRules;
 import com.burakkaya.commentservice.entities.Comment;
 import com.burakkaya.commentservice.repository.CommentRepository;
+import com.burakkaya.commonpackage.events.comment.CommentCreatedEvent;
+import com.burakkaya.commonpackage.events.comment.CommentDeletedEvent;
+import com.burakkaya.commonpackage.events.comment.CommentUpdatedEvent;
+import com.burakkaya.commonpackage.utils.kafka.producer.KafkaProducer;
 import com.burakkaya.commonpackage.utils.mappers.ModelMapperService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -24,6 +29,7 @@ public class CommentManager implements CommentService {
     private final CommentRepository commentRepository;
     private final ModelMapperService modelMapperService;
     private final CommentBusinessRules rules;
+    private final KafkaProducer producer;
 
     @Override
     public List<GetAllCommentsResponse> getAllComments() {
@@ -66,5 +72,19 @@ public class CommentManager implements CommentService {
     public void deleteComment(String id) {
         rules.checkIfCommentExistsById(id);
         commentRepository.deleteById(id);
+    }
+
+    private void sendKafkaCommentCreatedEvent(Comment createdComment) {
+        var event = modelMapperService.forResponse().map(createdComment, CommentCreatedEvent.class);
+        producer.sendMessage(event, "comment-created");
+    }
+
+    private void  sendKafkaCommentUpdatedEvent(Comment updatedComment) {
+        var event = modelMapperService.forResponse().map(updatedComment, CommentUpdatedEvent.class);
+        producer.sendMessage(event, "comment-updated");
+    }
+
+    private void sendKafkaCommentDeletedEvent(String id) {
+        producer.sendMessage(new CommentDeletedEvent(id), "comment-deleted");
     }
 }
