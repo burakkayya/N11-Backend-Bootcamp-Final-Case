@@ -1,7 +1,7 @@
 package com.burakkaya.commonpackage.configuration.exceptions;
 
 
-import com.burakkaya.commonpackage.constants.ExceptionTypes;
+import com.burakkaya.commonpackage.utils.constants.ExceptionTypes;
 import com.burakkaya.commonpackage.utils.exceptions.BusinessException;
 import com.burakkaya.commonpackage.utils.results.ExceptionResult;
 import javax.validation.ValidationException;

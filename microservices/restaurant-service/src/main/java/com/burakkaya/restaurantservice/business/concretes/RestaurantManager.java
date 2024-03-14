@@ -1,5 +1,6 @@
 package com.burakkaya.restaurantservice.business.concretes;
 
+import com.burakkaya.commonpackage.utils.dto.ClientResponse;
 import com.burakkaya.commonpackage.utils.enums.State;
 import com.burakkaya.commonpackage.utils.enums.Status;
 import com.burakkaya.commonpackage.utils.mappers.ModelMapperService;
@@ -10,6 +11,7 @@ import com.burakkaya.restaurantservice.business.dto.responses.CreateRestaurantRe
 import com.burakkaya.restaurantservice.business.dto.responses.GetAllRestaurantsResponse;
 import com.burakkaya.restaurantservice.business.dto.responses.GetRestaurantResponse;
 import com.burakkaya.restaurantservice.business.dto.responses.UpdateRestaurantResponse;
+import com.burakkaya.restaurantservice.business.rules.RestaurantBusinessRules;
 import com.burakkaya.restaurantservice.entities.Restaurant;
 import com.burakkaya.restaurantservice.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
@@ -24,6 +26,7 @@ public class RestaurantManager implements RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
     private final ModelMapperService modelMapperService;
+    private final RestaurantBusinessRules rules;
 
     @Override
     public List<GetAllRestaurantsResponse> getAllRestaurants() {
@@ -37,6 +40,7 @@ public class RestaurantManager implements RestaurantService {
 
     @Override
     public GetRestaurantResponse getRestaurant(String id) {
+        rules.checkIfRestaurantExists(id);
         GetRestaurantResponse response = modelMapperService.forResponse().map(restaurantRepository.findById(id).orElseThrow(), GetRestaurantResponse.class);
         return response;
     }
@@ -53,6 +57,7 @@ public class RestaurantManager implements RestaurantService {
 
     @Override
     public UpdateRestaurantResponse updateRestaurant(String id, UpdateRestaurantRequest updateRestaurantRequest) {
+        rules.checkIfRestaurantExists(id);
         Restaurant restaurant = modelMapperService.forRequest().map(updateRestaurantRequest, Restaurant.class);
         restaurant.setId(id);
         Restaurant updatedRestaurant = restaurantRepository.save(restaurant);
@@ -62,8 +67,26 @@ public class RestaurantManager implements RestaurantService {
 
     @Override
     public void deleteRestaurant(String id) {
+        rules.checkIfRestaurantExists(id);
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
         restaurant.setStatus(Status.PASSIVE);
         restaurantRepository.save(restaurant);
+    }
+
+    @Override
+    public ClientResponse checkIfRestaurantExists(String id) {
+        var response = new ClientResponse();
+        validateRestaurantExists(id, response);
+        return response;
+    }
+
+    private void validateRestaurantExists(String id, ClientResponse response) {
+        try {
+            rules.checkIfRestaurantExists(id);
+            response.setSuccess(true);
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setMessage(e.getMessage());
+        }
     }
 }

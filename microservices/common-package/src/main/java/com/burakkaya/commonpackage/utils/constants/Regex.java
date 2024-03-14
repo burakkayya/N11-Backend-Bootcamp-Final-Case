@@ -1,4 +1,4 @@
-package com.burakkaya.commonpackage.constants;
+package com.burakkaya.commonpackage.utils.constants;
 
 public class Regex {
     public static final String email = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";

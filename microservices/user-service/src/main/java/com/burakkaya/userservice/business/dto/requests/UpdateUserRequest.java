@@ -1,6 +1,6 @@
 package com.burakkaya.userservice.business.dto.requests;
 
-import com.burakkaya.commonpackage.constants.Regex;
+import com.burakkaya.commonpackage.utils.constants.Regex;
 import com.burakkaya.commonpackage.utils.enums.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
