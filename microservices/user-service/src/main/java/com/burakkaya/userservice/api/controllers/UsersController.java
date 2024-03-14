@@ -1,5 +1,6 @@
 package com.burakkaya.userservice.api.controllers;
 
+import com.burakkaya.commonpackage.utils.dto.ClientResponse;
 import com.burakkaya.userservice.business.abstracts.UserService;
 import com.burakkaya.userservice.business.dto.requests.CreateUserRequest;
 import com.burakkaya.userservice.business.dto.requests.UpdateUserRequest;
@@ -43,6 +44,11 @@ public class UsersController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable UUID id){
         service.deleteUser(id);
+    }
+
+    @GetMapping("/check-user-exists/{id}")
+    public ClientResponse checkIfUserExists(@PathVariable UUID id){
+        return service.checkIfUserExists(id);
     }
 
 }

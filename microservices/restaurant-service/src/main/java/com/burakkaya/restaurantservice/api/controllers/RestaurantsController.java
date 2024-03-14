@@ -1,5 +1,6 @@
 package com.burakkaya.restaurantservice.api.controllers;
 
+import com.burakkaya.commonpackage.utils.dto.ClientResponse;
 import com.burakkaya.restaurantservice.business.abstracts.RestaurantService;
 import com.burakkaya.restaurantservice.business.dto.requests.CreateRestaurantRequest;
 import com.burakkaya.restaurantservice.business.dto.requests.UpdateRestaurantRequest;
@@ -42,5 +43,10 @@ public class RestaurantsController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id){
         service.deleteRestaurant(id);
+    }
+
+    @GetMapping("/check-restaurant-exists/{id}")
+    public ClientResponse checkIfRestaurantExists(@PathVariable String id){
+        return service.checkIfRestaurantExists(id);
     }
 }

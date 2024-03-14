@@ -1,6 +1,6 @@
 package com.burakkaya.restaurantservice.business.dto.requests;
 
-import com.burakkaya.commonpackage.constants.Regex;
+import com.burakkaya.commonpackage.utils.constants.Regex;
 import com.burakkaya.commonpackage.utils.enums.State;
 import com.burakkaya.commonpackage.utils.enums.Status;
 import lombok.AllArgsConstructor;

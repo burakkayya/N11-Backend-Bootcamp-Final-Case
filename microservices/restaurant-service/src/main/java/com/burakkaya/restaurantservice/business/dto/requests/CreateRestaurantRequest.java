@@ -1,6 +1,6 @@
 package com.burakkaya.restaurantservice.business.dto.requests;
 
-import com.burakkaya.commonpackage.constants.Regex;
+import com.burakkaya.commonpackage.utils.constants.Regex;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.burakkaya.commonpackage.constants;
+package com.burakkaya.commonpackage.utils.constants;
 
 public class ExceptionTypes {
     public static class Exception{

@@ -45,20 +45,20 @@ services:
     depends_on:
       - zipkin
 
-#  elasticsearch:
-#    image: docker.elastic.co/elasticsearch/elasticsearch:8.6.2
-#    container_name: invoicedb
-#    environment:
-#      - transport.host=localhost
-#      - xpack.security.enabled=false
-#      - "ES_JAVA_OPTS=-Xmx2048m -Xms2048m"
-#    ports:
-#      - "9200:9200"
-#      - "9300:9300"
-#    networks:
-#      esnet:
-#    depends_on:
-#      - zipkin
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.6.2
+    container_name: commentdb
+    environment:
+      - transport.host=localhost
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xmx2048m -Xms2048m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      esnet:
+    depends_on:
+      - zipkin
 
   prometheus:
     image: prom/prometheus

@@ -1,5 +1,6 @@
 package com.burakkaya.userservice.business.abstracts;
 
+import com.burakkaya.commonpackage.utils.dto.ClientResponse;
 import com.burakkaya.userservice.business.dto.requests.CreateUserRequest;
 import com.burakkaya.userservice.business.dto.requests.UpdateUserRequest;
 import com.burakkaya.userservice.business.dto.responses.CreateUserResponse;
@@ -16,5 +17,6 @@ public interface UserService {
     CreateUserResponse createUser(CreateUserRequest createUserRequest);
     UpdateUserResponse updateUser(UUID id, UpdateUserRequest updateUserRequest);
     void deleteUser(UUID id);
+    ClientResponse checkIfUserExists(UUID id);
 
 }

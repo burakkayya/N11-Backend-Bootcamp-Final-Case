@@ -1,5 +1,6 @@
 package com.burakkaya.userservice.business.concretes;
 
+import com.burakkaya.commonpackage.utils.dto.ClientResponse;
 import com.burakkaya.commonpackage.utils.enums.Status;
 import com.burakkaya.commonpackage.utils.mappers.ModelMapperService;
 import com.burakkaya.userservice.business.abstracts.UserService;
@@ -9,6 +10,7 @@ import com.burakkaya.userservice.business.dto.responses.CreateUserResponse;
 import com.burakkaya.userservice.business.dto.responses.GetAllUsersResponse;
 import com.burakkaya.userservice.business.dto.responses.GetUserResponse;
 import com.burakkaya.userservice.business.dto.responses.UpdateUserResponse;
+import com.burakkaya.userservice.business.rules.UserBusinessRules;
 import com.burakkaya.userservice.entities.User;
 import com.burakkaya.userservice.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -22,6 +24,7 @@ import java.util.UUID;
 public class UserManager implements UserService {
     private final UserRepository userRepository;
     private final ModelMapperService mapper;
+    private final UserBusinessRules rules;
     @Override
     public List<GetAllUsersResponse> getAllUsers() {
         List<GetAllUsersResponse> responses = userRepository.findAll()
@@ -33,6 +36,7 @@ public class UserManager implements UserService {
 
     @Override
     public GetUserResponse getUserById(UUID id) {
+        rules.checkIfUserExistsById(id);
         User  user = userRepository.findById(id).orElseThrow();
         GetUserResponse response = mapper.forResponse().map(user, GetUserResponse.class);
         return response;
@@ -50,6 +54,7 @@ public class UserManager implements UserService {
 
     @Override
     public UpdateUserResponse updateUser(UUID id, UpdateUserRequest updateUserRequest) {
+        rules.checkIfUserExistsById(id);
         User user = mapper.forRequest().map(updateUserRequest, User.class);
         user.setId(id);
         User updatedUser = userRepository.save(user);
@@ -59,8 +64,26 @@ public class UserManager implements UserService {
 
     @Override
     public void deleteUser(UUID id) {
+        rules.checkIfUserExistsById(id);
         User user = userRepository.findById(id).orElseThrow();
         user.setStatus(Status.PASSIVE);
         userRepository.save(user);
+    }
+
+    @Override
+    public ClientResponse checkIfUserExists(UUID id) {
+        var response = new ClientResponse();
+        validateUserExists(id, response);
+        return response;
+    }
+
+    private void validateUserExists(UUID id, ClientResponse response) {
+        try {
+            rules.checkIfUserExistsById(id);
+            response.setSuccess(true);
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setMessage(e.getMessage());
+        }
     }
 }
