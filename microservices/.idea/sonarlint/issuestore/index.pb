@@ -193,3 +193,5 @@ Jcommon-package/src/main/java/com/burakkaya/commonpackage/events/Event.java,7\3
 `common-package/src/main/java/com/burakkaya/commonpackage/events/comment/CommentDeletedEvent.java,9\a\9a31412936a43d75220887235097072ed2f22917
 
 `common-package/src/main/java/com/burakkaya/commonpackage/events/comment/CommentUpdatedEvent.java,7\3\73f75907122e617c85a2c5656cf48cba187a6d28
+
+mrestaurant-service/src/main/java/com/burakkaya/restaurantservice/business/kafka/consumer/CommentConsumer.java,8\3\8399c537e614585dba85f03c9569d4a02ef8ea01

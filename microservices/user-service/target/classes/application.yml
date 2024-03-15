@@ -28,6 +28,10 @@ spring:
             trusted:
               packages: "*"
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
   zipkin:
     baseUrl: http://localhost:9411
 eureka:

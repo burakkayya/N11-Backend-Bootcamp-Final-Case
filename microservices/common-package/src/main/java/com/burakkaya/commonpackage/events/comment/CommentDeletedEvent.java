@@ -1,6 +1,7 @@
 package com.burakkaya.commonpackage.events.comment;
 
 import com.burakkaya.commonpackage.events.Event;
+import com.burakkaya.commonpackage.utils.enums.Rate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,4 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CommentDeletedEvent implements Event {
     private String commentId;
+    private String restaurantId;
+    private Rate rate;
 }

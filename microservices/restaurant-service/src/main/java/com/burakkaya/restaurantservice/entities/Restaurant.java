@@ -37,4 +37,6 @@ public class Restaurant {
     private Double longitude;
     @Indexed(name = "rating", type = "double")
     private Double rating;
+    @Indexed(name = "comment_count", type = "pint")
+    private Integer commentCount;
 }

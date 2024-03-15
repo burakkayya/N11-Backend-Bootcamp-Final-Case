@@ -50,6 +50,8 @@ public class RestaurantManager implements RestaurantService {
         Restaurant restaurant = modelMapperService.forRequest().map(createRestaurantRequest, Restaurant.class);
         restaurant.setStatus(Status.ACTIVE);
         restaurant.setState(State.OPEN);
+        restaurant.setCommentCount(0);
+        restaurant.setRating(0.0);
         Restaurant createdRestaurant = restaurantRepository.save(restaurant);
         CreateRestaurantResponse response = modelMapperService.forResponse().map(createdRestaurant, CreateRestaurantResponse.class);
         return response;
@@ -71,6 +73,7 @@ public class RestaurantManager implements RestaurantService {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
         restaurant.setStatus(Status.PASSIVE);
         restaurantRepository.save(restaurant);
+        restaurantRepository.deleteById(id); //UNUTMA
     }
 
     @Override
@@ -88,5 +91,43 @@ public class RestaurantManager implements RestaurantService {
             response.setSuccess(false);
             response.setMessage(e.getMessage());
         }
+    }
+
+    public void updateRestaurantRatingWhenCommentCreated(String id, int rate) {
+        rules.checkIfRestaurantExists(id);
+        Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
+        double totalRating = restaurant.getRating() * restaurant.getCommentCount();
+        totalRating += rate;
+
+        restaurant.setId(id);
+        restaurant.setCommentCount(restaurant.getCommentCount() + 1);
+        restaurant.setRating(totalRating / restaurant.getCommentCount());
+        restaurantRepository.save(restaurant);
+    }
+
+    @Override
+    public void updateRestaurantRatingWhenCommentUpdated(String id, int oldRate, int newRate) {
+        rules.checkIfRestaurantExists(id);
+        Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
+        double totalRating = restaurant.getRating() * restaurant.getCommentCount();
+        totalRating -= oldRate;
+        totalRating += newRate;
+
+        restaurant.setId(id);
+        restaurant.setRating(totalRating / restaurant.getCommentCount());
+        restaurantRepository.save(restaurant);
+    }
+
+    @Override
+    public void updateRestaurantRatingWhenCommentDeleted(String id, int rate) {
+        rules.checkIfRestaurantExists(id);
+        Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
+        double totalRating = restaurant.getRating() * restaurant.getCommentCount();
+        totalRating -= rate;
+
+        restaurant.setId(id);
+        restaurant.setCommentCount(restaurant.getCommentCount() - 1);
+        restaurant.setRating(totalRating / restaurant.getCommentCount());
+        restaurantRepository.save(restaurant);
     }
 }

@@ -13,11 +13,14 @@ import com.burakkaya.commentservice.repository.CommentRepository;
 import com.burakkaya.commonpackage.events.comment.CommentCreatedEvent;
 import com.burakkaya.commonpackage.events.comment.CommentDeletedEvent;
 import com.burakkaya.commonpackage.events.comment.CommentUpdatedEvent;
+import com.burakkaya.commonpackage.utils.enums.Rate;
 import com.burakkaya.commonpackage.utils.kafka.producer.KafkaProducer;
 import com.burakkaya.commonpackage.utils.mappers.ModelMapperService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -53,24 +56,35 @@ public class CommentManager implements CommentService {
         rules.checkIfUserExists(createCommentRequest.getUserId());
         rules.checkIfRestaurantExists(createCommentRequest.getRestaurantId());
         Comment comment = modelMapperService.forRequest().map(createCommentRequest, Comment.class);
+        comment.setCommentedAt(LocalDateTime.now());
         Comment createdComment = commentRepository.save(comment);
+        sendKafkaCommentCreatedEvent(createdComment);
         CreateCommentResponse response = modelMapperService.forResponse().map(createdComment, CreateCommentResponse.class);
         return response;
     }
 
+    @Transactional
     @Override
     public UpdateCommentResponse updateComment(String id, UpdateCommentRequest updateCommentRequest) {
         rules.checkIfCommentExistsById(id);
+        Rate oldRate = commentRepository.findById(id).orElseThrow().getRate();
+        Comment oldComment = commentRepository.findById(id).orElseThrow();
         Comment comment = modelMapperService.forRequest().map(updateCommentRequest, Comment.class);
         comment.setId(id);
+        comment.setRestaurantId(oldComment.getRestaurantId());
+        comment.setUserId(oldComment.getUserId());
+        comment.setCommentedAt(LocalDateTime.now());
         Comment updatedComment = commentRepository.save(comment);
+        sendKafkaCommentUpdatedEvent(updatedComment, oldRate);
         UpdateCommentResponse response = modelMapperService.forResponse().map(updatedComment, UpdateCommentResponse.class);
         return response;
     }
 
+    @Transactional
     @Override
     public void deleteComment(String id) {
         rules.checkIfCommentExistsById(id);
+        sendKafkaCommentDeletedEvent(commentRepository.findById(id).orElseThrow());
         commentRepository.deleteById(id);
     }
 
@@ -79,12 +93,14 @@ public class CommentManager implements CommentService {
         producer.sendMessage(event, "comment-created");
     }
 
-    private void  sendKafkaCommentUpdatedEvent(Comment updatedComment) {
+    private void  sendKafkaCommentUpdatedEvent(Comment updatedComment, Rate oldRate) {
         var event = modelMapperService.forResponse().map(updatedComment, CommentUpdatedEvent.class);
+        event.setOldRate(oldRate);
         producer.sendMessage(event, "comment-updated");
     }
 
-    private void sendKafkaCommentDeletedEvent(String id) {
-        producer.sendMessage(new CommentDeletedEvent(id), "comment-deleted");
+    private void sendKafkaCommentDeletedEvent(Comment deletedComment) {
+        var event = modelMapperService.forResponse().map(deletedComment, CommentDeletedEvent.class);
+        producer.sendMessage(event, "comment-deleted");
     }
 }

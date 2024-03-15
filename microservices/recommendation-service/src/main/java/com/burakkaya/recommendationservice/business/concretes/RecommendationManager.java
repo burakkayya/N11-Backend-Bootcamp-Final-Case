@@ -20,7 +20,6 @@ public class RecommendationManager implements RecommendationService {
     private final RecommendationBusinessRules rules;
     @Override
     public List<GetAllRestaurantResponse> getRecommendations(RecommendationRequest recommendationRequest) {
-        rules.checkIfRestaurantExists(recommendationRequest.getRestaurantId());
         rules.checkIfUserExists(recommendationRequest.getUserId());
 
         List<GetAllRestaurantResponse> restaurants = restaurantClient.getAllRestaurants();
@@ -33,8 +32,8 @@ public class RecommendationManager implements RecommendationService {
                 recommendedRestaurants.add(restaurant);
             }
         }
-        recommendedRestaurants.sort((r1, r2) -> Double.compare(weightedScore(r1.getRating(), calculateDistance(user.getLatitude(), user.getLongitude(), r1.getLatitude(), r1.getLongitude())),
-                weightedScore(r2.getRating(), calculateDistance(user.getLatitude(), user.getLongitude(), r2.getLatitude(), r2.getLongitude()))));
+        recommendedRestaurants.sort((r1, r2) -> Double.compare(weightedScore(r2.getRating(), calculateDistance(user.getLatitude(), user.getLongitude(), r2.getLatitude(), r2.getLongitude())),
+                weightedScore(r1.getRating(), calculateDistance(user.getLatitude(), user.getLongitude(), r1.getLatitude(), r1.getLongitude()))));
 
         return recommendedRestaurants.subList(0, Math.min(recommendedRestaurants.size(), 3));
 

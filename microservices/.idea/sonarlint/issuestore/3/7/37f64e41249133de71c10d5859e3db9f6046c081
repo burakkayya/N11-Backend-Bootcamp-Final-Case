@@ -1,13 +1,9 @@
 
 ¨
-java:S1488/"`Immediately return this expression instead of assigning it to the temporary variable "response".(š‘üúÿÿÿÿ8¯º·øã1J$068eb07f-10e4-4cf3-ae54-3cda3551c092
+java:S14882"`Immediately return this expression instead of assigning it to the temporary variable "response".(š‘üúÿÿÿÿ8˜õûã1J$d77dba5f-3a97-4242-a9ac-3e9d713aedc5
 ¨
-java:S14889"`Immediately return this expression instead of assigning it to the temporary variable "response".(ç¥ŠÄıÿÿÿÿ8°º·øã1J$0bd95570-b0fa-4412-b0c8-518e886bfac0
+java:S1488>"`Immediately return this expression instead of assigning it to the temporary variable "response".(ç¥ŠÄıÿÿÿÿ8˜õûã1J$bc1ffe62-b8d7-4fd2-b548-e407a11e387d
 £
-java:S1488C"`Immediately return this expression instead of assigning it to the temporary variable "response".(ÿÔ‘ß8°º·øã1J$65326045-4f81-4ad2-bd41-e49ea17748af
-„
-java:S1144M"ARemove this unused private "sendKafkaCommentCreatedEvent" method.(Ù‚¦Ç8Íº·øã1J$88cb6013-240f-4715-9dd2-4fb87fc46e6f
-„
-java:S1144R"ARemove this unused private "sendKafkaCommentUpdatedEvent" method.(½´Öš8Íº·øã1J$b68fd3f5-49de-40b8-80b1-376e3ad9535e
-„
-java:S1144W"ARemove this unused private "sendKafkaCommentDeletedEvent" method.(—Ë¦ 8Íº·øã1J$6a521a12-6a91-48e3-ab65-4e38aaa085f0
+java:S1488O"`Immediately return this expression instead of assigning it to the temporary variable "response".(ÿÔ‘ß8˜õûã1J$b389e98e-3b63-4a72-a852-27d5c0a35a67
+s
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8Ã²ùûã1J$a5d020f0-7f69-42d3-9f36-40bbe8929b2c

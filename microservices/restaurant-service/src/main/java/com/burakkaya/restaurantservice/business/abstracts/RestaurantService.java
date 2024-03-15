@@ -17,4 +17,7 @@ public interface RestaurantService {
     UpdateRestaurantResponse updateRestaurant(String id, UpdateRestaurantRequest updateRestaurantRequest);
     void deleteRestaurant(String id);
     ClientResponse checkIfRestaurantExists(String id);
+    void updateRestaurantRatingWhenCommentCreated(String id, int rate);
+    void updateRestaurantRatingWhenCommentUpdated(String id, int oldRate, int newRate);
+    void updateRestaurantRatingWhenCommentDeleted(String id, int rate);
 }

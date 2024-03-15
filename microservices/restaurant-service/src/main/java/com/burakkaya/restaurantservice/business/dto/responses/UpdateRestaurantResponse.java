@@ -21,4 +21,5 @@ public class UpdateRestaurantResponse {
     private Double latitude;
     private Double longitude;
     private Double rating;
+    private Integer commentCount;
 }

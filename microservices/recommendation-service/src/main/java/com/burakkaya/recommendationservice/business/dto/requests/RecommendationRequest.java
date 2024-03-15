@@ -13,5 +13,4 @@ import java.util.UUID;
 @AllArgsConstructor
 public class RecommendationRequest {
     private UUID userId;
-    private String restaurantId;
 }
