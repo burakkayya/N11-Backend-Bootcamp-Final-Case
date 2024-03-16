@@ -12,6 +12,7 @@
         <module name="restaurant-service" />
         <module name="common-package" />
         <module name="api-gateway" />
+        <module name="log-service" />
         <module name="user-service" />
         <module name="recommendation-service" />
       </profile>
@@ -23,6 +24,7 @@
       <module name="comment-service" options="-parameters" />
       <module name="common-package" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
+      <module name="log-service" options="-parameters" />
       <module name="recommendation-service" options="-parameters" />
       <module name="restaurant-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
