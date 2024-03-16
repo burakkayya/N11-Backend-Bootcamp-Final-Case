@@ -219,3 +219,7 @@ E
 Sconfig-server/src/main/java/com/burakkaya/configserver/ConfigServerApplication.java,8\5\859b419da868aaea26438bc7a22f8a7112eec5a4
 F
 config-server/mvnw.cmd,0\9\09d6c851d3b5e0951a6f90053fc57fac349c8d8e
+ž
+nrestaurant-service/src/test/java/com/burakkaya/restaurantservice/business/concretes/RestaurantManagerTest.java,d\2\d2dade309e6c6c29c47c73e4ad366774234351b2
+Ÿ
+orestaurant-service/src/test/java/com/burakkaya/restaurantservice/api/controllers/RestaurantsControllerTest.java,8\0\803d8eeb210089a6df528dbfc121e4cbda1aa4b9

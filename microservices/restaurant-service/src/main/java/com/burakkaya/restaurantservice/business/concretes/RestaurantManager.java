@@ -73,7 +73,6 @@ public class RestaurantManager implements RestaurantService {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
         restaurant.setStatus(Status.PASSIVE);
         restaurantRepository.save(restaurant);
-        restaurantRepository.deleteById(id); //UNUTMA
     }
 
     @Override
