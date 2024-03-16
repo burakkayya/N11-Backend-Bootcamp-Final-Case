@@ -223,3 +223,7 @@ F
 nrestaurant-service/src/test/java/com/burakkaya/restaurantservice/business/concretes/RestaurantManagerTest.java,d\2\d2dade309e6c6c29c47c73e4ad366774234351b2
 Ÿ
 orestaurant-service/src/test/java/com/burakkaya/restaurantservice/api/controllers/RestaurantsControllerTest.java,8\0\803d8eeb210089a6df528dbfc121e4cbda1aa4b9
+
+]user-service/src/test/java/com/burakkaya/userservice/api/controllers/UsersControllerTest.java,8\c\8c90608564398ba899ba2805b72692048e5b4b0f
+Œ
+\user-service/src/test/java/com/burakkaya/userservice/business/concretes/UserManagerTest.java,3\a\3ad54eac782a58af230536b8c2eb61e1eac27585

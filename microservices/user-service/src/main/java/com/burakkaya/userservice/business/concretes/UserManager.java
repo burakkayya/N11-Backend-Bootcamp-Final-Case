@@ -55,8 +55,10 @@ public class UserManager implements UserService {
     @Override
     public UpdateUserResponse updateUser(UUID id, UpdateUserRequest updateUserRequest) {
         rules.checkIfUserExistsById(id);
+        User oldUser = userRepository.findById(id).orElseThrow();
         User user = mapper.forRequest().map(updateUserRequest, User.class);
         user.setId(id);
+        user.setPassword(oldUser.getPassword());
         User updatedUser = userRepository.save(user);
         UpdateUserResponse response = mapper.forResponse().map(updatedUser, UpdateUserResponse.class);
         return response;
