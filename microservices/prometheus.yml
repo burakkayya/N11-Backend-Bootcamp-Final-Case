@@ -1,0 +1,30 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  - job_name: 'user-service'
+    scrape_interval: 2s
+    metrics_path: '/user-service/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:9010' ]
+  - job_name: 'restaurant-service'
+    scrape_interval: 2s
+    metrics_path: '/restaurant-service/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:9010' ]
+  - job_name: 'comment-service'
+    scrape_interval: 2s
+    metrics_path: '/comment-service/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:9010' ]
+  - job_name: 'recommendation-service'
+    scrape_interval: 2s
+    metrics_path: '/recommendation-service/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:9010' ]
+  - job_name: 'log-service'
+    scrape_interval: 2s
+    metrics_path: '/log-service/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:9010' ]

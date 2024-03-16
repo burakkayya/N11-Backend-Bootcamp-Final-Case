@@ -95,7 +95,7 @@ volumes:
   data:
   kafka_data:
   mongodb_data:
-#  esdata1:
+  esdata1:
   grafana-data:
   grafana-config:
 networks:
