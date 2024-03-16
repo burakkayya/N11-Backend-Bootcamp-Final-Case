@@ -1,32 +1,8 @@
 spring:
   application:
     name: RECOMMENDATION-SERVICE
-  zipkin:
-    baseUrl: http://localhost:9411
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${random.value}
-    prefer-ip-address: true
-server:
-  port: 0
-management:
-  endpoint:
-    metrics:
-      enabled: true
-    prometheus:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  tracing:
-    sampling:
-      probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+  cloud:
+    config:
+      profile: dev
+  config:
+    import: optional:configserver:http://localhost:8888
