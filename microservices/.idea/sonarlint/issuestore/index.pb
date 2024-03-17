@@ -235,3 +235,7 @@ fcomment-service/src/test/java/com/burakkaya/commentservice/api/controllers/Comm
 zrecommendation-service/src/test/java/com/burakkaya/recommendationservice/business/concretes/RecommendationManagerTest.java,c\3\c3a19deece75e71efac4a115ccbfb1bdac97a648
 «
 {recommendation-service/src/test/java/com/burakkaya/recommendationservice/api/controllers/RecommendationsControllerTest.java,5\9\591a0778d232a31d1515637535a25bf31fb7b18d
+‚
+Rlog-service/src/test/java/com/burakkaya/logservice/LogServiceApplicationTests.java,d\7\d7eff75f955b493f8dfa748cd6fc7922c2ef6fa1
+£
+srecommendation-service/src/test/java/com/burakkaya/recommendationservice/RecommendationServiceApplicationTests.java,e\3\e33b33108c2fc679ab8c47279ffaf1a330bac67c

@@ -172,6 +172,8 @@ class RestaurantManagerTest {
         entity.setStatus(Status.ACTIVE);
         entity.setRating(0.0);
         entity.setCommentCount(0);
+        final Optional<Restaurant> restaurant = Optional.of(entity);
+        when(mockRestaurantRepository.findById("id")).thenReturn(restaurant);
 
         when(mockRestaurantRepository.save(any(Restaurant.class))).thenReturn(entity);
 

@@ -1,9 +1,11 @@
 
 ƒ
-java:S1488"aImmediately return this expression instead of assigning it to the temporary variable "responses".(Úï«±ûÿÿÿÿ8òÚõÂä1
+java:S1488"aImmediately return this expression instead of assigning it to the temporary variable "responses".(Úï«±ûÿÿÿÿ8ù´æôä1
 }
-java:S1488)"`Immediately return this expression instead of assigning it to the temporary variable "response".(É±õÈ8óÚõÂä1
+java:S1488)"`Immediately return this expression instead of assigning it to the temporary variable "response".(É±õÈ8ù´æôä1
 ‚
-java:S14883"`Immediately return this expression instead of assigning it to the temporary variable "response".(â’…èûÿÿÿÿ8óÚõÂä1
+java:S14883"`Immediately return this expression instead of assigning it to the temporary variable "response".(â’…èûÿÿÿÿ8ù´æôä1
 }
-java:S1488?"`Immediately return this expression instead of assigning it to the temporary variable "response".(îÏŸ¦8óÚõÂä1
+java:S1488?"`Immediately return this expression instead of assigning it to the temporary variable "response".(îÏŸ¦8ù´æôä1
+b
+java:S2259="EA "NullPointerException" could be thrown; "oldUser" is nullable here.(˜çÕ¬8¦µæôä1

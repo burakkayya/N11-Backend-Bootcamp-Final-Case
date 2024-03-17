@@ -161,7 +161,7 @@ class UserManagerTest {
     @Test
     void testUpdateUser() {
         final UpdateUserRequest updateUserRequest = new UpdateUserRequest();
-        updateUserRequest.setId(UUID.fromString("b6855f90-09ae-4526-bc98-6c095ff5685e"));
+        updateUserRequest.setId(UUID.fromString("4ae259aa-3fb2-4aeb-a3e2-6f12d8382d91"));
         updateUserRequest.setFirstName("firstName");
         updateUserRequest.setLastName("lastName");
         updateUserRequest.setEmail("email");
@@ -175,6 +175,8 @@ class UserManagerTest {
         user.setLastName("lastName");
         user.setEmail("email");
         user.setStatus(Status.ACTIVE);
+        final Optional<User> userOptional = Optional.of(user);
+        when(mockUserRepository.findById(UUID.fromString("4ae259aa-3fb2-4aeb-a3e2-6f12d8382d91"))).thenReturn(userOptional);
         when(mockUserRepository.save(any(User.class))).thenReturn(user);
 
         when(mockMapper.forResponse()).thenReturn(new ModelMapper());
@@ -194,7 +196,17 @@ class UserManagerTest {
         updateUserRequest.setEmail("email");
         updateUserRequest.setPhoneNumber("phoneNumber");
 
+        final User oldUser = new User();
+        oldUser.setId(updateUserRequest.getId());
+        oldUser.setFirstName("oldFirstName");
+        oldUser.setLastName("oldLastName");
+        oldUser.setEmail("oldEmail");
+        oldUser.setPassword("oldPassword");
+        oldUser.setPhoneNumber("oldPhoneNumber");
+        oldUser.setStatus(Status.ACTIVE);
+
         when(mockMapper.forRequest()).thenReturn(new ModelMapper());
+        when(mockUserRepository.findById(any(UUID.class))).thenReturn(Optional.of(oldUser));
         when(mockUserRepository.save(any(User.class))).thenThrow(OptimisticLockingFailureException.class);
 
         assertThatThrownBy(
