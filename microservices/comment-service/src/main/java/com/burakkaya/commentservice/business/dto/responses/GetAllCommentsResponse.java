@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -16,4 +18,5 @@ public class GetAllCommentsResponse {
     private String userId;
     private String restaurantId;
     private Rate rate;
+    private LocalDateTime commentedAt;
 }
