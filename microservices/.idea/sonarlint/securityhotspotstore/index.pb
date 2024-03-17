@@ -231,3 +231,7 @@ orestaurant-service/src/test/java/com/burakkaya/restaurantservice/api/controller
 ecomment-service/src/test/java/com/burakkaya/commentservice/business/concretes/CommentManagerTest.java,3\7\37a724dd0a7d5806c96baaa38753f8b73348efe1
 –
 fcomment-service/src/test/java/com/burakkaya/commentservice/api/controllers/CommentsControllerTest.java,d\a\daca3b8e1f293bf4439bf8951726a85e3db564e2
+ª
+zrecommendation-service/src/test/java/com/burakkaya/recommendationservice/business/concretes/RecommendationManagerTest.java,c\3\c3a19deece75e71efac4a115ccbfb1bdac97a648
+«
+{recommendation-service/src/test/java/com/burakkaya/recommendationservice/api/controllers/RecommendationsControllerTest.java,5\9\591a0778d232a31d1515637535a25bf31fb7b18d
