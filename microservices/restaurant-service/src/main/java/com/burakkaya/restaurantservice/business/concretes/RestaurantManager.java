@@ -60,8 +60,11 @@ public class RestaurantManager implements RestaurantService {
     @Override
     public UpdateRestaurantResponse updateRestaurant(String id, UpdateRestaurantRequest updateRestaurantRequest) {
         rules.checkIfRestaurantExists(id);
+        Restaurant oldRestaurant = restaurantRepository.findById(id).orElseThrow();
         Restaurant restaurant = modelMapperService.forRequest().map(updateRestaurantRequest, Restaurant.class);
         restaurant.setId(id);
+        restaurant.setRating(oldRestaurant.getRating());
+        restaurant.setCommentCount(oldRestaurant.getCommentCount());
         Restaurant updatedRestaurant = restaurantRepository.save(restaurant);
         UpdateRestaurantResponse response = modelMapperService.forResponse().map(updatedRestaurant, UpdateRestaurantResponse.class);
         return response;

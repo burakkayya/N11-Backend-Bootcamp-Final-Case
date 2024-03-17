@@ -1,0 +1,603 @@
+{
+	"info": {
+		"_postman_id": "54187968-d613-499c-9c9a-0b2b4214862d",
+		"name": "microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21151376"
+	},
+	"item": [
+		{
+			"name": "user-service",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/USER-SERVICE/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"USER-SERVICE",
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/USER-SERVICE/api/users/ccdcfaba-a9f4-4423-a812-355527e2a230",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"USER-SERVICE",
+										"api",
+										"users",
+										"ccdcfaba-a9f4-4423-a812-355527e2a230"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/USER-SERVICE/api/users/ccdcfaba-a9f4-4423-a812-355527e2a230",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"USER-SERVICE",
+										"api",
+										"users",
+										"ccdcfaba-a9f4-4423-a812-355527e2a230"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/USER-SERVICE/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"USER-SERVICE",
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"ccdcfaba-a9f4-4423-a812-355527e2a230\",\r\n  \"firstName\": \"burak\",\r\n  \"lastName\": \"kaya\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"passwordConfirm\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"address\": \"string\",\r\n  \"latitude\": \"string\",\r\n  \"longitude\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/USER-SERVICE/api/users/ccdcfaba-a9f4-4423-a812-355527e2a230",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"USER-SERVICE",
+										"api",
+										"users",
+										"ccdcfaba-a9f4-4423-a812-355527e2a230"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "comment-service",
+			"item": [
+				{
+					"name": "comment",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/COMMENT-SERVICE/api/comments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"COMMENT-SERVICE",
+										"api",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/COMMENT-SERVICE/api/comments/ccdcfaba-a9f4-4423-a812-355527e2a230",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"COMMENT-SERVICE",
+										"api",
+										"comments",
+										"ccdcfaba-a9f4-4423-a812-355527e2a230"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/COMMENT-SERVICE/api/comments/ccdcfaba-a9f4-4423-a812-355527e2a230",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"COMMENT-SERVICE",
+										"api",
+										"comments",
+										"ccdcfaba-a9f4-4423-a812-355527e2a230"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/COMMENT-SERVICE/api/comments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"COMMENT-SERVICE",
+										"api",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"ccdcfaba-a9f4-4423-a812-355527e2a230\",\r\n  \"firstName\": \"burak\",\r\n  \"lastName\": \"kaya\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"passwordConfirm\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"address\": \"string\",\r\n  \"latitude\": \"string\",\r\n  \"longitude\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/COMMENT-SERVICE/api/comments/ccdcfaba-a9f4-4423-a812-355527e2a230",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"COMMENT-SERVICE",
+										"api",
+										"comments",
+										"ccdcfaba-a9f4-4423-a812-355527e2a230"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "restaurant-service",
+			"item": [
+				{
+					"name": "restaurant",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Restaurant 2\",\r\n    \"phoneNumber\": \"0987654321\",\r\n    \"address\": \"456 Maple St, City, Country\",\r\n    \"latitude\": 41.025,\r\n    \"longitude\": 28.999\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/RESTAURANT-SERVICE/api/restaurants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"RESTAURANT-SERVICE",
+										"api",
+										"restaurants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/RESTAURANT-SERVICE/api/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"RESTAURANT-SERVICE",
+										"api",
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/RESTAURANT-SERVICE/api/restaurants/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"RESTAURANT-SERVICE",
+										"api",
+										"restaurants",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/RESTAURANT-SERVICE/api/restaurants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"RESTAURANT-SERVICE",
+										"api",
+										"restaurants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"ccdcfaba-a9f4-4423-a812-355527e2a230\",\r\n  \"firstName\": \"burak\",\r\n  \"lastName\": \"kaya\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"passwordConfirm\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"address\": \"string\",\r\n  \"latitude\": \"string\",\r\n  \"longitude\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/RESTAURANT-SERVICE/api/restaurants/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"RESTAURANT-SERVICE",
+										"api",
+										"restaurants",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "recommendation-service",
+			"item": [
+				{
+					"name": "recommendation",
+					"item": [
+						{
+							"name": "get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userId\": \"7a235732-64a9-406c-9f47-4bc4944176d0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/RECOMMENDATION-SERVICE/api/recommendations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"RECOMMENDATION-SERVICE",
+										"api",
+										"recommendations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "log-service",
+			"item": [
+				{
+					"name": "log",
+					"item": [
+						{
+							"name": "getAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userId\": \"7a235732-64a9-406c-9f47-4bc4944176d0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9010/LOG-SERVICE/api/logs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9010",
+									"path": [
+										"LOG-SERVICE",
+										"api",
+										"logs"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
